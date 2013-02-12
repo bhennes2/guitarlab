@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  artist: MyString
+  title: MyString
+  version: MyString
+  tuning: MyString
+  capo: MyString
+  lyrics: MyString
+  lyrics_and_chords: MyString
+  original_album: MyString
+  original_year: MyString
+  version_album: MyString
+  version_year: MyString
+  special_notes: MyString
+  chords: MyString
+  parts: MyString
+  url: MyString
+
+two:
+  artist: MyString
+  title: MyString
+  version: MyString
+  tuning: MyString
+  capo: MyString
+  lyrics: MyString
+  lyrics_and_chords: MyString
+  original_album: MyString
+  original_year: MyString
+  version_album: MyString
+  version_year: MyString
+  special_notes: MyString
+  chords: MyString
+  parts: MyString
+  url: MyString

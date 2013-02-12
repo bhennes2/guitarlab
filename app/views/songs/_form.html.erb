@@ -1,0 +1,77 @@
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :artist %><br />
+    <%= f.text_field :artist %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :tuning %><br />
+    <%= f.text_field :tuning %>
+  </div>
+  <div class="field">
+    <%= f.label :capo %><br />
+    <%= f.text_field :capo %>
+  </div>
+  <div class="field">
+    <%= f.label :lyrics %><br />
+    <%= f.text_area :lyrics %>
+  </div>
+  <div class="field">
+    <%= f.label :lyrics_and_chords %><br />
+    <%= f.text_area :lyrics_and_chords %>
+  </div>
+  <div class="field">
+    <%= f.label :original_album %><br />
+    <%= f.text_field :original_album %>
+  </div>
+  <div class="field">
+    <%= f.label :original_year %><br />
+    <%= f.text_field :original_year %>
+  </div>
+  <div class="field">
+    <%= f.label :version_album %><br />
+    <%= f.text_field :version_album %>
+  </div>
+  <div class="field">
+    <%= f.label :version_year %><br />
+    <%= f.text_field :version_year %>
+  </div>
+  <div class="field">
+    <%= f.label :special_notes %><br />
+    <%= f.text_field :special_notes %>
+  </div>
+  <div class="field">
+    <%= f.label :chords %><br />
+    <%= f.text_field :chords %>
+  </div>
+  <div class="field">
+    <%= f.label :parts %><br />
+    <%= f.text_field :parts %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

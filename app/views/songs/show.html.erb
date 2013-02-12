@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Artist:</b>
+  <%= @song.artist %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @song.title %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @song.version %>
+</p>
+
+<p>
+  <b>Tuning:</b>
+  <%= @song.tuning %>
+</p>
+
+<p>
+  <b>Capo:</b>
+  <%= @song.capo %>
+</p>
+
+<p>
+  <b>Lyrics:</b>
+  <pre><%= @song.lyrics %></pre>
+</p>
+
+<p>
+  <b>Lyrics and chords:</b>
+  <pre><%= @song.lyrics_and_chords %></pre>
+</p>
+
+<p>
+  <b>Original album:</b>
+  <%= @song.original_album %>
+</p>
+
+<p>
+  <b>Original year:</b>
+  <%= @song.original_year %>
+</p>
+
+<p>
+  <b>Version album:</b>
+  <%= @song.version_album %>
+</p>
+
+<p>
+  <b>Version year:</b>
+  <%= @song.version_year %>
+</p>
+
+<p>
+  <b>Special notes:</b>
+  <%= @song.special_notes %>
+</p>
+
+<p>
+  <b>Chords:</b>
+  <%= @song.chords %>
+</p>
+
+<p>
+  <b>Parts:</b>
+  <%= @song.parts %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @song.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
