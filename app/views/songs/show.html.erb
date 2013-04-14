@@ -1,80 +1,99 @@
-<p id="notice"><%= notice %></p>
+    <div id="wrapper">
+      <%= link_to 'Back', :back, class: 'button' %>
+      <input type="search" size="40" placeholder="Search..." class="search"></input>
+      <br class="clear" />
+        <div id="song-wrapper">
+          <span class="title"><%= @song.title %></span>
+          <span class="artist"><%= @song.artist %> (Version Artist - Only Show If Applicable)</span>
+          <form id="lyrics">
+            <input type="radio" name="lyrics" value="chords" id="chords" checked /><label for="chords">Chords + Lyrics</label>
+            <input type="radio" name="lyrics" value="lyrics" id="lyrics" /><label for="lyrics">Lyrics Only</label>
+          </form>
+          <br class="clear" />
+            <span data-detail="chords" class="mono"><%= @song.lyrics_and_chords %></span>
+            <span data-detail="lyrics" class="mono hide"><%= @song.lyrics %></span>
+        </div><!--song-wrapper--> 
+        <div id="info-wrapper"> 
+        <table>
+          <thead>
+            <tr>
+              <th class="info">Additional Information</th>
+           </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="info">Instrument: Guitar</td>
+            </tr>               
+            <tr>
+              <td class="info">Tuning: <%= @song.tuning %></td>
+            </tr>
+            <tr>
+              <td class="info">Capo: <%= @song.capo %></td>
+            </tr>
+            <tr>
+              <td class="info">Chords: <%= @song.chords %></td>
+            </tr>
+            <tr>
+              <td class="info">Source: <a href="#">Ultimate Guitar</a></td>
+            </tr> 
+            <tr>
+              <td class="info">Notes:
+                <span class="notes">These are some example notes. This might be a short section with a sentence or might require a longer explanation. 
 
-<p>
-  <b>Artist:</b>
-  <%= @song.artist %>
-</p>
+It might also include a chord chart like this:
 
-<p>
-  <b>Title:</b>
-  <%= @song.title %>
-</p>
+Bassline
+--0---0-------------3-3-3----
+--------1---1-3---3-------3--</span></td>
+            </tr>                                                                                           
+          </tbody>
+        </table>
+        <br class="clear" />
+        <table>
+          <thead>
+            <tr>
+              <th class="info">Song Information</th>
+           </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="info">Album: <%= @song.original_album %></td>
+            </tr>  
+            <tr>
+              <td class="info">Year: <%= @song.version_year %></td>
+            </tr>
+            <tr>
+              <td class="info">Version Album: <%= @song.version_album || 'N/A' %></td>
+            </tr>  
+            <tr>
+              <td class="info">Version Year: <%= @song.version_year || 'N/A' %></td>
+            </tr>                                                                                     
+          </tbody>
+        </table>
+        <br class="clear" />
+        <%= link_to 'Delete', @song, method: :delete, confirm: 'Are you sure you want to delete this song?', class: 'button right' %>
+        <%= link_to 'Edit', edit_song_url(@song), class: "button right breathe" %>
+        </div><!--info-wrapper-->   
+        <br class="clear" />
+    </div><!--wrapper-->
+    
+    
+<script>
 
-<p>
-  <b>Version:</b>
-  <%= @song.version %>
-</p>
+  (function(){
+    
+    var spans = $('span.mono');
+    
+    $('input[type="radio"]').on('click', function(){
+      var type = $(this).val();
+      
+      spans.each(function(){
+        var detail = $(this).data('detail');
+        detail == type ? $(this).show() : $(this).hide();
+      })
+      
+    });
+    
+  })()
 
-<p>
-  <b>Tuning:</b>
-  <%= @song.tuning %>
-</p>
-
-<p>
-  <b>Capo:</b>
-  <%= @song.capo %>
-</p>
-
-<p>
-  <b>Lyrics:</b>
-  <pre><%= @song.lyrics %></pre>
-</p>
-
-<p>
-  <b>Lyrics and chords:</b>
-  <pre><%= @song.lyrics_and_chords %></pre>
-</p>
-
-<p>
-  <b>Original album:</b>
-  <%= @song.original_album %>
-</p>
-
-<p>
-  <b>Original year:</b>
-  <%= @song.original_year %>
-</p>
-
-<p>
-  <b>Version album:</b>
-  <%= @song.version_album %>
-</p>
-
-<p>
-  <b>Version year:</b>
-  <%= @song.version_year %>
-</p>
-
-<p>
-  <b>Special notes:</b>
-  <%= @song.special_notes %>
-</p>
-
-<p>
-  <b>Chords:</b>
-  <%= @song.chords %>
-</p>
-
-<p>
-  <b>Parts:</b>
-  <%= @song.parts %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= link_to @song.url, @song.url %>
-</p>
-
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
+</script>

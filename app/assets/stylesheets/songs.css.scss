@@ -1,10 +1,14 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 body {font-family: 'Noto Sans', sans-serif; font-size: 12px; font-weight: 400; color: #8c8c8c;}
-.clear {clear: both;}
-a {text-decoration: none;}
+.clear {clear:both;}
+.left {float:left;}
+.right {float:right;}
+.breathe {margin: 0 10px;}
+a {text-decoration: none; color: #404853;}
 #wrapper {
   width: 960px;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 #alphabet {
   text-align: center;
@@ -23,7 +27,7 @@ a {text-decoration: none;}
   font-weight: 700;
   line-height: 20px;
 }
-#alphabet li a:hover, a:active {
+#alphabet li a:hover {
   color: #ffffff;
   background-color: #404853;
 }
@@ -46,18 +50,10 @@ a {text-decoration: none;}
 span.big {
   text-align: center;
   font-size: 100px;
+  color: #8c8c8c;  
+  display: block;
 }
-form#sort {
-  margin-top: 10px;
-  color: #8c8c8c;
-  width: 500px;
-  float: left;
-
-}
-form#sort input[type="radio"] {
-  margin-left: 20px;
-}
-table {
+table#index {
   border-collapse: separate;
   border-spacing: 0;
   width: 960px;
@@ -76,14 +72,14 @@ th {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
 }
-th.song, th.tuning, th.capo, th.chords{
+th.song, th.tuning, th.capo, th.chords, th.info {
   padding: 12px 20px 10px 20px;
   text-align: center;
 }
-th.song {
+th.song, th.info {
   border-left: 0;
 }
-th.chords {
+th.chords, th.info {
   border-right: 0;
 }
 td {
@@ -100,7 +96,7 @@ tbody tr:nth-child(even) td {
   background: linear-gradient(#f7faf9, #e8eae9);
   border-left: 1px solid #d5d8db;
 }
-tbody td.song, tbody tr:nth-child(even) td.song {
+tbody td.song, tbody tr:nth-child(even) td.song, tbody td.info, tbody tr:nth-child(even) td.info {
   border-left: 1px solid #c6c9cc;
 }
 tbody td.song a {
@@ -109,13 +105,13 @@ tbody td.song a {
   font-weight: 700;
   line-height: 20px;
 }
-tbody td.tuning, tbody td.capo, tbody td.chords{
+tbody td.instrument, tbody td.tuning, tbody td.capo, tbody td.chords {
   vertical-align: middle;
 }
-tbody td.tuning, tbody td.capo, tbody td.chords{
+tbody td.instrument, tbody td.tuning, tbody td.capo, tbody td.chords {
   text-align: center;
 }
-tbody td.chords {
+tbody td.chords, tbody td.info {
   border-right: 1px solid #c6c9cc;
 }
 tfoot td {
@@ -137,14 +133,62 @@ tfoot td.capo {
 .out {
   color: #b50000;
 }
-span {
+span.artist {
   color: #8c8c8c;
   display: block;
   font-size: 12px;
   font-weight: normal;
 }
-
-div.container {
-	margin: 0 auto;
-	width: 960px;
+span.title {
+  color: #404853;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;  
+}
+#info-wrapper {
+  width: 300px;
+  float: right;
+}
+#info-wrapper table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 300px;
+  margin-top: 10px;
+}
+#info-wrapper table td {
+  padding: 10px 8px;
+}
+#song-wrapper {
+  width: 600px;
+  padding: 20px;
+  float: left;
+  margin-top: 10px;
+  border: 1px solid #c6c9cc;
+}
+form#lyrics {
+  margin: 10px 0;
+  color: #8c8c8c;
+  width: 500px;
+  float: left;
+}
+form#lyrics label {
+  margin: 0 10px 0 2px;
+}
+span.mono {
+  font-family: 'Droid Sans Mono', 'Courier New', courier, monospace;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+span.notes {
+  font-family: 'Droid Sans Mono', 'Courier New', courier, monospace;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  display: block;
+  max-width: 280px;
+  padding-top: 5px;
+}
+#copyright {
+  display: block;
+  text-align: left;
+  margin: 10px 0;
 }
