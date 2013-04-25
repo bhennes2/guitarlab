@@ -31,7 +31,7 @@
           <li><a href="#">Z</a></li>
         </ul> 
         <br class="clear" />
-      <a href="#" class="button" style="float: left;">New Song</a>
+      <a href="/new" class="button" style="float: left;">New Song</a>
       <input type="search" size="40" placeholder="Search..." class="search"></input>
       <br class="clear" />
       
@@ -48,8 +48,8 @@
 
       <% @songs.each do |song| %>
         <tr>
-          <td class="song"><%= link_to song.title, song %> <span><%= song.artist %></span></td>
-          <td class="instrument">Guitar</td>
+          <td class="song"><%= link_to song.title, song %> <span class="artist"><%= song.artist %></span></td>
+          <td class="instrument"><%= song.parts %></td>
           <td class="tuning"><%= song.tuning %></td>
           <td class="capo"><%= song.capo %></td>
           <td class="chords"><%= song.chords %></td>
