@@ -13,66 +13,69 @@
             <span data-detail="chords" class="mono"><%= @song.lyrics_and_chords %></span>
             <span data-detail="lyrics" class="mono hide"><%= @song.lyrics %></span>
         </div><!--song-wrapper--> 
-        <div id="info-wrapper"> 
-        <table>
-          <thead>
-            <tr>
-              <th class="info">Additional Information</th>
-           </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="info">Instrument: Guitar</td>
-            </tr>               
-            <tr>
-              <td class="info">Tuning: <%= @song.tuning %></td>
-            </tr>
-            <tr>
-              <td class="info">Capo: <%= @song.capo %></td>
-            </tr>
-            <tr>
-              <td class="info">Chords: <%= @song.chords %></td>
-            </tr>
-            <tr>
-              <td class="info">Source: <a href="#">Ultimate Guitar</a></td>
-            </tr> 
-            <tr>
-              <td class="info">Notes:
-                <span class="notes">These are some example notes. This might be a short section with a sentence or might require a longer explanation. 
+        <div id="info-wrapper">
+          <div id="spotify">
+            <iframe src="https://embed.spotify.com/?uri=spotify:track:43NhiKnrtGqztxDqXrcUux" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+          </div><!--spotify--> 
+          <table>
+            <thead>
+              <tr>
+                <th class="info">Additional Information</th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="info">Instrument: <%= @song.parts %></td>
+              </tr>               
+              <tr>
+                <td class="info">Tuning: <%= @song.tuning %></td>
+              </tr>
+              <tr>
+                <td class="info">Capo: <%= @song.capo %></td>
+              </tr>
+              <tr>
+                <td class="info">Chords: <%= @song.chords %></td>
+              </tr>
+              <tr>
+                <td class="info">Source: <a href="#">Ultimate Guitar</a></td>
+              </tr> 
+              <tr>
+                <td class="info">Notes:
+                  <span class="notes">These are some example notes. This might be a short section with a sentence or might require a longer explanation. 
 
-It might also include a chord chart like this:
+  It might also include a chord chart like this:
 
-Bassline
---0---0-------------3-3-3----
---------1---1-3---3-------3--</span></td>
-            </tr>                                                                                           
-          </tbody>
-        </table>
-        <br class="clear" />
-        <table>
-          <thead>
-            <tr>
-              <th class="info">Song Information</th>
-           </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="info">Album: <%= @song.original_album %></td>
-            </tr>  
-            <tr>
-              <td class="info">Year: <%= @song.version_year %></td>
-            </tr>
-            <tr>
-              <td class="info">Version Album: <%= @song.version_album || 'N/A' %></td>
-            </tr>  
-            <tr>
-              <td class="info">Version Year: <%= @song.version_year || 'N/A' %></td>
-            </tr>                                                                                     
-          </tbody>
-        </table>
-        <br class="clear" />
-        <%= link_to 'Delete', @song, method: :delete, confirm: 'Are you sure you want to delete this song?', class: 'button right' %>
-        <%= link_to 'Edit', edit_song_url(@song), class: "button right breathe" %>
+  Bassline
+  --0---0-------------3-3-3----
+  --------1---1-3---3-------3--</span></td>
+              </tr>                                                                                           
+            </tbody>
+          </table>
+          <br class="clear" />
+          <table>
+            <thead>
+              <tr>
+                <th class="info">Song Information</th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="info">Album: <%= @song.original_album %></td>
+              </tr>  
+              <tr>
+                <td class="info">Year: <%= @song.version_year %></td>
+              </tr>
+              <tr>
+                <td class="info">Version Album: <%= @song.version_album || 'N/A' %></td>
+              </tr>  
+              <tr>
+                <td class="info">Version Year: <%= @song.version_year || 'N/A' %></td>
+              </tr>                                                                                     
+            </tbody>
+          </table>
+          <br class="clear" />
+          <%= link_to 'Delete', @song, method: :delete, confirm: 'Are you sure you want to delete this song?', class: 'button right' %>
+          <%= link_to 'Edit', edit_song_url(@song), class: "button right breathe" %>
         </div><!--info-wrapper-->   
         <br class="clear" />
     </div><!--wrapper-->
