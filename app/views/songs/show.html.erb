@@ -51,7 +51,6 @@
               </tr>                                                                                           
             </tbody>
           </table>
-          <br class="clear" />
           <table>
             <thead>
               <tr>
@@ -73,9 +72,10 @@
               </tr>                                                                                     
             </tbody>
           </table>
-          <br class="clear" />
-          <%= link_to 'Delete', @song, method: :delete, confirm: 'Are you sure you want to delete this song?', class: 'button right' %>
-          <%= link_to 'Edit', edit_song_url(@song), class: "button right breathe" %>
+          <div id="buttons">
+            <%= link_to 'Delete', @song, method: :delete, confirm: 'Are you sure you want to delete this song?', class: 'button right' %>
+            <%= link_to 'Edit', edit_song_url(@song), class: "button right breathe" %>
+          </div><!--buttons-->
         </div><!--info-wrapper-->   
         <br class="clear" />
     </div><!--wrapper-->
