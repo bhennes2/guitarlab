@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212041652) do
+ActiveRecord::Schema.define(:version => 20130502173512) do
 
   create_table "songs", :force => true do |t|
     t.string   "artist"
@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(:version => 20130212041652) do
     t.string   "original_year"
     t.string   "version_album"
     t.string   "version_year"
-    t.string   "special_notes"
     t.string   "chords"
     t.string   "parts"
     t.string   "url"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.text     "notes"
+    t.string   "spotify_url"
   end
 
 end

@@ -14,9 +14,11 @@
             <span data-detail="lyrics" class="mono hide"><%= @song.lyrics %></span>
         </div><!--song-wrapper--> 
         <div id="info-wrapper">
-          <div id="spotify">
-            <iframe src="https://embed.spotify.com/?uri=spotify:track:43NhiKnrtGqztxDqXrcUux" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-          </div><!--spotify--> 
+          <% if @song.spotify_url.present? %>
+            <div id="spotify">
+              <iframe src="https://embed.spotify.com/?uri=<%= @song.spotify_url %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+            </div><!--spotify--> 
+          <% end %>
           <table>
             <thead>
               <tr>
@@ -39,16 +41,13 @@
               <tr>
                 <td class="info">Source: <a href="#">Ultimate Guitar</a></td>
               </tr> 
-              <tr>
-                <td class="info">Notes:
-                  <span class="notes">These are some example notes. This might be a short section with a sentence or might require a longer explanation. 
-
-  It might also include a chord chart like this:
-
-  Bassline
-  --0---0-------------3-3-3----
-  --------1---1-3---3-------3--</span></td>
-              </tr>                                                                                           
+              <% if @song.notes.present? %>
+                <tr>
+                  <td class="info">Notes:
+                      <span class="notes"><%= @song.notes %></span>
+                    </td>      
+                </tr>    
+              <% end %>                                                                                       
             </tbody>
           </table>
           <table>
@@ -60,16 +59,22 @@
             <tbody>
               <tr>
                 <td class="info">Album: <%= @song.original_album %></td>
-              </tr>  
-              <tr>
-                <td class="info">Year: <%= @song.original_year %></td>
-              </tr>
-              <tr>
-                <td class="info">Version Album: <%= @song.version_album || 'N/A' %></td>
-              </tr>  
-              <tr>
-                <td class="info">Version Year: <%= @song.version_year || 'N/A' %></td>
-              </tr>                                                                                     
+              </tr> 
+              <% if @song.original_year.present? %> 
+                <tr>
+                  <td class="info">Year: <%= @song.original_year %></td>
+                </tr>
+              <% end %>
+              <% if @song.version_album.present? %>
+                <tr>
+                  <td class="info">Version Album: <%= @song.version_album %></td>
+                </tr> 
+              <% end %> 
+              <% if @song.version_year.present? %>
+                <tr>
+                  <td class="info">Version Year: <%= @song.version_year %></td>
+                </tr>  
+              <% end %>                                                                                   
             </tbody>
           </table>
           <div id="buttons">
