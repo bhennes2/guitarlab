@@ -1,59 +1,35 @@
-    <div id="wrapper">
-        <ul id="alphabet">
-          <li>ARTIST:</li>
-          <li><a href="#">ALL</a></li>
-          <li><a href="#">#</a></li>
-          <li><a href="#">A</a></li>
-          <li><a href="#">B</a></li>
-          <li><a href="#">C</a></li>
-          <li><a href="#">D</a></li>
-          <li><a href="#">E</a></li>
-          <li><a href="#">F</a></li>
-          <li><a href="#">G</a></li>
-          <li><a href="#">H</a></li>
-          <li><a href="#">I</a></li>
-          <li><a href="#">J</a></li>
-          <li><a href="#">K</a></li>
-          <li><a href="#">L</a></li>
-          <li><a href="#">M</a></li>
-          <li><a href="#">N</a></li>
-          <li><a href="#">O</a></li>
-          <li><a href="#">P</a></li>
-          <li><a href="#">Q</a></li>
-          <li><a href="#">R</a></li>
-          <li><a href="#">S</a></li>
-          <li><a href="#">T</a></li>
-          <li><a href="#">U</a></li>
-          <li><a href="#">V</a></li>
-          <li><a href="#">W</a></li>
-          <li><a href="#">X</a></li>
-          <li><a href="#">Y</a></li>
-          <li><a href="#">Z</a></li>
-        </ul> 
-        <br class="clear" />
-      <%= link_to 'New Song', new_song_url, class: 'button', style: 'float: left;'%>
-      <input type="search" size="40" placeholder="Search..." class="search"></input>
-      <br class="clear" />
-      
-      <table id="index">
-        <thead>
-          <tr>
-            <th class="song">Song</th>
-            <th class="instrument">Instrument</th>
-            <th class="tuning">Tuning</th>
-            <th class="capo">Capo</th>
-            <th class="chords">Chords</th>
-         </tr>
-        </thead>
-
-      <% @songs.each do |song| %>
-        <tr>
-          <td class="song"><%= link_to song.title, song %> <span class="artist"><%= song.artist %></span></td>
-          <td class="instrument"><%= song.parts %></td>
-          <td class="tuning"><%= song.tuning %></td>
-          <td class="capo"><%= song.capo %></td>
-          <td class="chords"><%= song.chords %></td>
-        </tr>
-      <% end %>
-      </table>
-  </div><!--wrapper-->
+<div id="wrapper">
+    <ul id="alphabet">
+      <li>ARTIST:</li>
+      <li><a class="song_filter" data-song-filter="all" href="#">ALL</a></li>
+      <li><a class="song_filter" data-song-filter="#" href="#">#</a></li>
+      <%= generate_filter_by_letter %>
+    </ul> 
+    <br class="clear" />
+  <%= link_to 'New Song', new_song_url, class: 'button', style: 'float: left;'%>
+  <input type="search" size="40" placeholder="Search..." class="search"></input>
+  <br class="clear" />
+  
+  <table id="index">
+    <thead>
+      <tr>
+        <th class="song">Song</th>
+        <th class="instrument">Instrument</th>
+        <th class="tuning">Tuning</th>
+        <th class="capo">Capo</th>
+        <th class="chords">Chords</th>
+     </tr>
+    </thead>
+    <tbody>
+  <% @songs.each do |song| %>
+    <tr data-song-id="<%= song.id %>" data-song-filter="<%= song.artist_first_letter_filter %>">
+        <td class="song"><%= link_to song.title, song %> <span class="artist"><%= song.artist %> <%= song.version_artist.present? ? "(#{song.version_artist})" : "" %></span></td>
+        <td class="instrument"><%= song.parts %></td>
+        <td class="tuning"><%= song.tuning %></td>
+        <td class="capo"><%= song.capo %></td>
+        <td class="chords"><%= song.chords %></td>
+    </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div><!--wrapper-->

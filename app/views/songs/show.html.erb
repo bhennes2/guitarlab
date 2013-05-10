@@ -4,7 +4,7 @@
       <br class="clear" />
         <div id="song-wrapper">
           <span class="title"><%= @song.title %></span>
-          <span class="artist"><%= @song.artist %> (Version Artist - Only Show If Applicable)</span>
+          <span class="artist"><%= @song.artist %> <%= @song.version_artist.present? ? "(#{@song.version_artist})" : "" %></span>
           <form id="lyrics">
             <input type="radio" name="lyrics" value="chords" id="chords" checked /><label for="chords">Chords + Lyrics</label>
             <input type="radio" name="lyrics" value="lyrics" id="lyrics" /><label for="lyrics">Lyrics Only</label>
