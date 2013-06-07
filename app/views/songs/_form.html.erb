@@ -1,3 +1,5 @@
+<%= render 'layouts/bootstrap_styling' %>
+
 <%= form_for(@song) do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
@@ -76,6 +78,7 @@
     <%= f.text_field :spotify_url %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn' %>
   </div>
+  
 <% end %>
