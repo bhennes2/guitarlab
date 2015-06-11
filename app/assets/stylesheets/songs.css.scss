@@ -50,7 +50,7 @@ a {text-decoration: none; color: #404853;}
 span.big {
   text-align: center;
   font-size: 100px;
-  color: #8c8c8c;  
+  color: #8c8c8c;
   display: block;
 }
 table#index {
@@ -148,7 +148,7 @@ span.title {
   color: #404853;
   font-size: 14px;
   font-weight: 700;
-  line-height: 20px;  
+  line-height: 20px;
 }
 #info-wrapper {
   width: 300px;
@@ -186,6 +186,7 @@ span.mono {
 }
 span.notes {
   font-family: 'Droid Sans Mono', 'Courier New', courier, monospace;
+  font-size: 11px;
   line-height: 1.5;
   white-space: pre-wrap;
   display: block;
